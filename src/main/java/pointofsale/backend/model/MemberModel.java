@@ -9,4 +9,6 @@ public class MemberModel implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
+    @ManyToOne
+    RoleModel roleModel;
 }
