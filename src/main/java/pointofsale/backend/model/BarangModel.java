@@ -2,6 +2,8 @@ package pointofsale.backend.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
+
 @Entity
 public class BarangModel implements Serializable {
     private static long serialVersionUID = 1L;

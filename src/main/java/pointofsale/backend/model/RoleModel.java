@@ -2,6 +2,7 @@ package pointofsale.backend.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 public class RoleModel implements Serializable {
@@ -10,5 +11,5 @@ public class RoleModel implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
     @ManyToMany
-    MenuModel menuModel;
+    List <MenuModel> menuModel;
 }
