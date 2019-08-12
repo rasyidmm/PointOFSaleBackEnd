@@ -11,6 +11,5 @@ public class MenuModel implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
-    @ManyToMany
-    List<RoleModel> roleModel;
+
 }

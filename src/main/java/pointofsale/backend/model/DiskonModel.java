@@ -11,6 +11,12 @@ public class DiskonModel implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
-    @ManyToMany
-    List<PenjualanModel> penjualanModel;
+    @ManyToOne
+    BarangModel barangModel;
+    @ManyToOne
+    KategoryBarangModel kategoryBarangModel;
+    @ManyToOne
+    ProdusenBarangModel produsenBarangModel;
+
+
 }

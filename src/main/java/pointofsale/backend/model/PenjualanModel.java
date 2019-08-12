@@ -12,4 +12,8 @@ public class PenjualanModel implements Serializable {
     private String id;
     @ManyToMany
     List<DiskonModel> diskonModel;
+    @ManyToMany
+    List<BarangModel> barangModels;
+    @ManyToOne
+    MemberModel memberModel;
 }

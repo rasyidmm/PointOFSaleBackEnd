@@ -10,7 +10,7 @@ public class BarangModel implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
-    String merkModel;
+    String NamaBarang;
     String hargaBarang;
     @ManyToOne
     KategoryBarangModel kategoryBarangModel;
