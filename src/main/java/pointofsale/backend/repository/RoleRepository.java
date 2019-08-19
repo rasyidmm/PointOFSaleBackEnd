@@ -1,8 +1,8 @@
 package pointofsale.backend.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import pointofsale.backend.model.DiskonModel;
+import pointofsale.backend.model.RoleModel;
 import org.springframework.stereotype.Repository;
 @Repository
-public interface DiskonRepository extends JpaRepository<DiskonModel , Long> {
+public interface RoleRepository extends JpaRepository<RoleModel, Long> {
 }
