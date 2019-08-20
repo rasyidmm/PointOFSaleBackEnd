@@ -1,6 +1,8 @@
 package pointofsale.backend.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,6 +27,6 @@ public class BarangController {
         barangModel.setKategoryBarangModel(serviceFac.getkategoryBarangService().getKategoryBarangById(tambahBarangDTO.getKategoryBarangModel()));
         barangModel.setProdusenBarangModel(serviceFac.getprodusenBarangService().getProdusenBarangById(tambahBarangDTO.getProdusenBarangModel()));
         serviceFac.getbarangService().SaveOrUpdateBarang(barangModel);
-        return ResponseEntity.ok("200");
+        return ResponseEntity.ok(HttpStatus.OK);
     }
 }
