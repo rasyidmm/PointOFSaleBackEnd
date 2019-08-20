@@ -14,7 +14,7 @@ public class BarangService implements BarangDao {
     RepositoryFac repositoryFac;
 
     @Override
-    public List<BarangModel> getAllBarang() throws MyResourceNotFoundException {
+    public List<BarangModel> getAllBarang()  {
         List<BarangModel> bl = new ArrayList<>();
         repositoryFac.getBarangRepository().findAll().forEach(bl::add);
         return bl;
