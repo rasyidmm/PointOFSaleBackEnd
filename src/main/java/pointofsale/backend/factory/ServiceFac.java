@@ -1,11 +1,15 @@
 package pointofsale.backend.factory;
 
+import jdk.nashorn.internal.ir.annotations.Immutable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import pointofsale.backend.security.service.JwtMasukDetailService;
 import pointofsale.backend.service.*;
 
 @Component
 public class ServiceFac {
+    @Autowired
+    JwtMasukDetailService jwtMasukDetailService;
     @Autowired
     BarangService barangService;
     @Autowired
@@ -56,5 +60,8 @@ public class ServiceFac {
     }
     public RoleService getroleService(){
         return roleService;
+    }
+    public   JwtMasukDetailService getJwtMasukDetailService(){
+        return jwtMasukDetailService;
     }
 }

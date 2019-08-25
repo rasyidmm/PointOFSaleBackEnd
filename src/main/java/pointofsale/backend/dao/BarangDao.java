@@ -16,4 +16,11 @@ public interface BarangDao {
     public void deleteBarangById(Long id);
 
     public void deleteBarang(BarangModel a);
+
+    public List<BarangModel> getBarangByStatus(String Status);
+
+    public List<BarangModel> getBarangByKategory(Long id);
+
+    public List<BarangModel> getBarangByProdusen(Long id);
+
 }

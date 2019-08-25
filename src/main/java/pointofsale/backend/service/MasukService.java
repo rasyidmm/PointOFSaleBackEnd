@@ -47,4 +47,9 @@ public class MasukService implements MasukDao {
         repositoryFac.getMasukRepository().delete(a);
 
     }
+
+    @Override
+    public MasukModel findByEmail(String email) {
+        return repositoryFac.getMasukRepository().findByEmail(email);
+    }
 }

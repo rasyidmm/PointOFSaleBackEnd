@@ -9,8 +9,8 @@ public class MasukModel extends Additional implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String emailKaryawan;
-    private String passwordKaryawan;
+    private String email;
+    private String password;
     @OneToOne
     private
     MemberModel memberModel;
@@ -21,24 +21,6 @@ public class MasukModel extends Additional implements Serializable {
 
     public static void setSerialVersionUID(long serialVersionUID) {
         MasukModel.serialVersionUID = serialVersionUID;
-    }
-
-
-
-    public String getEmailKaryawan() {
-        return emailKaryawan;
-    }
-
-    public void setEmailKaryawan(String emailKaryawan) {
-        this.emailKaryawan = emailKaryawan;
-    }
-
-    public String getPasswordKaryawan() {
-        return passwordKaryawan;
-    }
-
-    public void setPasswordKaryawan(String passwordKaryawan) {
-        this.passwordKaryawan = passwordKaryawan;
     }
 
     public MemberModel getMemberModel() {
@@ -55,5 +37,21 @@ public class MasukModel extends Additional implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

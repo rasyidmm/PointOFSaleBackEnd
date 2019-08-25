@@ -47,4 +47,20 @@ public class BarangService implements BarangDao {
         repositoryFac.getBarangRepository().delete(a);
 
     }
+
+    @Override
+    public List<BarangModel> getBarangByStatus(String Status) {
+        return repositoryFac.getBarangRepository().getAllByStatus(Status);
+
+    }
+
+    @Override
+    public List<BarangModel> getBarangByKategory(Long id) {
+        return repositoryFac.getBarangRepository().getAllByKategoryBarangModelOrderById(id);
+    }
+
+    @Override
+    public List<BarangModel> getBarangByProdusen(Long id) {
+        return repositoryFac.getBarangRepository().getAllByProdusenBarangModelId(id);
+    }
 }
