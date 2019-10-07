@@ -9,8 +9,6 @@ public class TambahBarangDTO {
     private Long kategoryBarangModel;
     private Long produsenBarangModel;
 
-
-
     public String getNamaBarang() {
         return NamaBarang;
     }
