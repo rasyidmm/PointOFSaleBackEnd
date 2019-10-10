@@ -4,15 +4,15 @@ package pointofsale.backend.util.response;
 public class RestResponse<T> {
     private Boolean success;
     private String message;
-    private T data;
+    private T datas;
 
     public RestResponse() {
     }
 
-    public RestResponse(Boolean success, String message, T data) {
+    public RestResponse(Boolean success, String message, T datas) {
         this.success = success;
         this.message = message;
-        this.data = data;
+        this.datas = datas;
     }
 
     public Boolean getSuccess() {
@@ -31,11 +31,11 @@ public class RestResponse<T> {
         this.message = message;
     }
 
-    public T getData() {
-        return data;
+    public T getDatas() {
+        return datas;
     }
 
-    public void setData(T data) {
-        this.data = data;
+    public void setDatas(T datas) {
+        this.datas = datas;
     }
 }

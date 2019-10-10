@@ -38,7 +38,7 @@ public class BarangController {
         BarangService barangService = serviceFac.getbarangService();
         result.setMessage("");
         result.setSuccess(true);
-        result.setData(barangService.getAllBarang());
+        result.setDatas(barangService.getAllBarang());
         return new ResponseEntity<>(result,HttpStatus.OK);
     }
     @RequestMapping(value = "/api/barangbyid/{id}",method = RequestMethod.GET)
@@ -47,7 +47,7 @@ public class BarangController {
        BarangService barangService = serviceFac.getbarangService();
        result.setMessage("");
        result.setSuccess(true);
-       result.setData(barangService.getBarangById(id));
+       result.setDatas(barangService.getBarangById(id));
        return new ResponseEntity<>(result,HttpStatus.OK);
     }
     @RequestMapping(value = "/api/hapusbarangbyid/{id}",method = RequestMethod.POST)
@@ -56,7 +56,7 @@ public class BarangController {
         BarangService barangService = serviceFac.getbarangService();
         result.setMessage("Berhasi dihapus");
         result.setSuccess(true);
-        result.setData(barangService.getBarangById(id));
+        result.setDatas(barangService.getBarangById(id));
         serviceFac.getbarangService().deleteBarangById(id);
         return new ResponseEntity<>(result,HttpStatus.OK);
     }
@@ -66,7 +66,7 @@ public class BarangController {
         BarangService barangService = serviceFac.getbarangService();
         result.setMessage("");
         result.setSuccess(true);
-        result.setData(barangService.getBarangByStatus(status));
+        result.setDatas(barangService.getBarangByStatus(status));
         return new ResponseEntity<>(result,HttpStatus.OK);
     }
     @RequestMapping(value = "/api/getbarangbyprod/{id}",method = RequestMethod.GET)
@@ -75,7 +75,7 @@ public class BarangController {
         BarangService barangService = serviceFac.getbarangService();
         result.setMessage("");
         result.setSuccess(true);
-        result.setData(barangService.getBarangByProdusen(id));
+        result.setDatas(barangService.getBarangByProdusen(id));
         return new ResponseEntity<>(result,HttpStatus.OK);
     }
 
@@ -85,7 +85,7 @@ public class BarangController {
         BarangService barangService = serviceFac.getbarangService();
         result.setMessage("");
         result.setSuccess(true);
-        result.setData(barangService.getBarangByKategory(id));
+        result.setDatas(barangService.getBarangByKategory(id));
         return new ResponseEntity<>(result,HttpStatus.OK);
     }
 

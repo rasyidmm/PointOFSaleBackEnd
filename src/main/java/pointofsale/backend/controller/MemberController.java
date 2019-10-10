@@ -51,7 +51,7 @@ public class MemberController {
         MemberService memberService = serviceFac.getmemberService();
         result.setMessage("");
         result.setSuccess(true);
-        result.setData(memberService.getAllMember());
+        result.setDatas(memberService.getAllMember());
         HttpStatus httpStatus = HttpStatus.OK;
         return new ResponseEntity(result, httpStatus);
     }
@@ -62,7 +62,7 @@ public class MemberController {
         MemberService memberService = serviceFac.getmemberService();
         result.setMessage("");
         result.setSuccess(true);
-        result.setData(memberService.getMemberById(id));
+        result.setDatas(memberService.getMemberById(id));
         HttpStatus httpStatus = HttpStatus.OK;
         return new ResponseEntity(result,httpStatus);
     }
