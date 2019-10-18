@@ -1,16 +1,17 @@
 package pointofsale.backend.model;
 
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
 @Entity
+@Cacheable
+@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class DiskonModel extends Additional implements Serializable {
 
-    private static long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+
     private String besaranDiskon;
     @ManyToOne
     private
@@ -21,16 +22,6 @@ public class DiskonModel extends Additional implements Serializable {
     @ManyToOne
     private
     ProdusenBarangModel produsenBarangModel;
-
-
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
-
-    public static void setSerialVersionUID(long serialVersionUID) {
-        DiskonModel.serialVersionUID = serialVersionUID;
-    }
-
 
     public String getBesaranDiskon() {
         return besaranDiskon;
@@ -64,11 +55,4 @@ public class DiskonModel extends Additional implements Serializable {
         this.produsenBarangModel = produsenBarangModel;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 }

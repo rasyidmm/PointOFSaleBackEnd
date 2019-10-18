@@ -18,5 +18,6 @@ public interface MasukDao {
     public void deleteMasuk(MasukModel a);
 
     public MasukModel findByEmail(String email);
+    public MasukModel findByLogin(String email,String passowrd);
 
 }

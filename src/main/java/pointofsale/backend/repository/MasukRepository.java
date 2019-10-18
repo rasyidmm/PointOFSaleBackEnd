@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface MasukRepository extends JpaRepository<MasukModel, Long> {
     MasukModel findByEmail(String email);
+    MasukModel findByEmailAndPassword(String email,String password);
 }

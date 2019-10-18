@@ -22,5 +22,5 @@ public interface BarangDao {
     public List<BarangModel> getBarangByKategory(Long id);
 
     public List<BarangModel> getBarangByProdusen(Long id);
-
+    public List<BarangModel>ExisId(Long id);
 }

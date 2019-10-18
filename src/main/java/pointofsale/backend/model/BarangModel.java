@@ -1,21 +1,22 @@
 package pointofsale.backend.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
 @Entity
+@Cacheable
+@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class BarangModel extends Additional implements Serializable {
-    private static long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+
     private String NamaBarang;
     private String hargaBarang;
     private String BiayaBarang;
     private String SKU;
+    private String fotoBarang;
     @JsonIgnoreProperties
     @ManyToOne
     private
@@ -24,13 +25,12 @@ public class BarangModel extends Additional implements Serializable {
     @ManyToOne
     private
     ProdusenBarangModel produsenBarangModel;
-
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
+    public String getFotoBarang() {
+        return fotoBarang;
     }
 
-    public static void setSerialVersionUID(long serialVersionUID) {
-        BarangModel.serialVersionUID = serialVersionUID;
+    public void setFotoBarang(String fotoBarang) {
+        this.fotoBarang = fotoBarang;
     }
 
 
@@ -83,11 +83,4 @@ public class BarangModel extends Additional implements Serializable {
         this.produsenBarangModel = produsenBarangModel;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 }

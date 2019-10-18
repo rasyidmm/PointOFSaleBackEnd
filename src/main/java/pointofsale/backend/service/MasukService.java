@@ -52,4 +52,9 @@ public class MasukService implements MasukDao {
     public MasukModel findByEmail(String email) {
         return repositoryFac.getMasukRepository().findByEmail(email);
     }
+
+    @Override
+    public MasukModel findByLogin(String email, String passowrd) {
+        return repositoryFac.getMasukRepository().findByEmailAndPassword(email,passowrd);
+    }
 }

@@ -13,10 +13,17 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import pointofsale.backend.model.LoginSession;
+import pointofsale.backend.model.MasukModel;
+import pointofsale.backend.model.MemberModel;
 import pointofsale.backend.security.JwtRequest;
 import pointofsale.backend.security.JwtResponse;
 import pointofsale.backend.security.JwtTokenUtil;
 import pointofsale.backend.security.service.JwtMasukDetailService;
+import pointofsale.backend.service.MasukService;
+import pointofsale.backend.service.MemberService;
+
+import javax.servlet.http.HttpSession;
 
 
 @RestController
@@ -31,15 +38,17 @@ public class JwtAuthenticationController {
 
     @Autowired
     private JwtMasukDetailService userDetailsService;
+    @Autowired
+    MasukService masukService;
 
     @RequestMapping(value = "/authenticate", method = RequestMethod.POST)
-    public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtRequest authenticationRequest) throws Exception {
+    public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtRequest authenticationRequest, HttpSession session) throws Exception {
         authenticate(authenticationRequest.getEmail(), authenticationRequest.getPassword());
-        final UserDetails userDetails = userDetailsService
-                .loadUserByUsername(authenticationRequest.getEmail());
+        final UserDetails userDetails = userDetailsService.loadUserByUsername(authenticationRequest.getEmail());
         final String token = jwtTokenUtil.generateToken(userDetails);
-
-        return ResponseEntity.ok(new JwtResponse(token));
+        MasukModel masukModel =  masukService.findByLogin(userDetails.getUsername(),userDetails.getPassword());
+        LoginSession loginSession =  new LoginSession(token,masukModel);
+        return ResponseEntity.ok(loginSession);
 
     }
 

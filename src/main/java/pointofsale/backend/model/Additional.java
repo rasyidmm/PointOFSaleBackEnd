@@ -5,10 +5,7 @@ package pointofsale.backend.model;
 
 
 import java.util.Date;
-import javax.persistence.MappedSuperclass;
-import javax.persistence.PrePersist;
-import javax.persistence.PreUpdate;
-import javax.persistence.Temporal;
+import javax.persistence.*;
 
 /**
  *
@@ -16,6 +13,11 @@ import javax.persistence.Temporal;
  */
 @MappedSuperclass
 public abstract class Additional {
+    private static long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date createDate;
     @Temporal(javax.persistence.TemporalType.DATE)
@@ -24,6 +26,22 @@ public abstract class Additional {
     private String updateBy;
     private String status;
     private String keterangan;
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public static void setSerialVersionUID(long serialVersionUID) {
+        Additional.serialVersionUID = serialVersionUID;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public Additional(){
 

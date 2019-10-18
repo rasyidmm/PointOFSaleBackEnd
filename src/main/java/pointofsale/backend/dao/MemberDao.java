@@ -1,6 +1,7 @@
 package pointofsale.backend.dao;
 
 import pointofsale.backend.model.MemberModel;
+import pointofsale.backend.service.MemberService;
 
 import java.util.List;
 
@@ -16,5 +17,7 @@ public interface MemberDao {
     public void deleteMemberById(Long id);
 
     public void deleteMember(MemberModel a);
+
+
 }
 
